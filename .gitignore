@@ -1,8 +1,6 @@
 # Large Files
 apt.dat
 lib/libjfxwebkit.so
-apt.dat.zip
-libjfxwebkit.so.zip
 
 # Build Artifacts
 bin/
