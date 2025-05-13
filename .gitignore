@@ -1,0 +1,28 @@
+# Large Files
+apt.dat
+lib/libjfxwebkit.so
+apt.dat.zip
+libjfxwebkit.so.zip
+
+# Build Artifacts
+bin/
+classes/
+*.class
+
+# Temporary Files
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+temp_extract/
+
+# IDE Files
+.idea/
+*.iml
+
+# System Files
+.DS_Store
+
+# Other
+structure.txt
