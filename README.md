@@ -30,25 +30,7 @@ cd STBO_AMM_Project
 
 ## Récupération des fichiers volumineux avec Git LFS
 
-Le fichier `apt.dat` et le fichier `lib/libjfxwebkit.so` sont des fichiers volumineux nécessaires pour exécuter l'application. GitHub ayant une limite de taille de fichier de 100 Mo, ces fichiers sont gérés par **Git Large File Storage (Git LFS)**.
-
-### Étapes pour configurer Git LFS
-
-1. Installez [Git LFS](https://git-lfs.github.com/) si ce n'est pas déjà fait.
-
-   - Sur **Linux** :
-     ```bash
-     sudo apt-get install git-lfs
-     ```
-   - Sur **macOS** (via Homebrew) :
-     ```bash
-     brew install git-lfs
-     ```
-   - Sur **Windows**, téléchargez et installez Git LFS à partir de [git-lfs.github.com](https://git-lfs.github.com/).
-
-2. Clonez le dépôt et récupérez les fichiers volumineux avec la commande suivante :
-   ```bash
-   git lfs pull
+Le fichier `apt.dat` et le fichier `lib/libjfxwebkit.so` sont des fichiers volumineux nécessaires pour exécuter l'application. GitHub ayant une limite de taille de fichier de 100 Mo, ces fichiers sont compressé et gérer dans le script d'exécution.
 
 
 ## Exécution
