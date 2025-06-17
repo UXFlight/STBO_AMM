@@ -43,6 +43,10 @@ javac --module-path "%JAVAFX%;lib" --add-modules %MODULES% -cp "src;%CP%" -d bin
 
 REM Exécution
 echo Lancement de l'application...
-java --module-path "%JAVAFX%;lib" --add-modules %MODULES% -cp "%CP%" main.Main
+java --module-path "%JAVAFX%" --add-modules %MODULES% ^
+     -cp "%CP%" ^
+     -Dprism.order=sw ^
+     -Dprism.verbose=true ^
+     main.Main
 
 endlocal
