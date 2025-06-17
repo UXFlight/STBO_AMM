@@ -1,8 +1,9 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 
 REM Définir les variables
 set "CP=bin;lib/*;ingescape/jar/*;ingescape/libs/*"
+set "JAVAFX=javafx-sdk-21\lib"
 set "MODULES=javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.web"
 
 REM Décompression des fichiers volumineux
@@ -27,11 +28,21 @@ if exist "libjfxwebkit.so.zip" (
 
 REM Compilation
 echo Compilation des fichiers Java...
-javac --module-path lib --add-modules %MODULES% -cp "src;%CP%" -d bin ^
-    src\main\*.java src\AgentCB\*.java src\XPlaneConnect\*.java src\XPlaneConnect\discovery\*.java src\uk\me\jstott\jcoord\**\*.java
+
+set "SOURCES="
+
+for %%f in (src\main\*.java src\AgentCB\*.java src\XPlaneConnect\*.java src\XPlaneConnect\discovery\*.java) do (
+    set "SOURCES=!SOURCES! %%f"
+)
+
+for /R src\uk\me\jstott\jcoord %%f in (*.java) do (
+    set "SOURCES=!SOURCES! %%f"
+)
+
+javac --module-path "%JAVAFX%;lib" --add-modules %MODULES% -cp "src;%CP%" -d bin !SOURCES!
 
 REM Exécution
 echo Lancement de l'application...
-java --module-path lib --add-modules %MODULES% -cp "%CP%" main.Main
+java --module-path "%JAVAFX%;lib" --add-modules %MODULES% -cp "%CP%" main.Main
 
 endlocal
